@@ -6,7 +6,12 @@ const connection = mysql.createConnection({
     host:"localhost",
     database:'weedstoredb',
     user:'root',
-    password:'root'
+    password:'root',
+
+    production: {
+        "use_env_variable": "JAWSDB_URL",
+        "dialect": "mysql"
+      }
 })
 
 
