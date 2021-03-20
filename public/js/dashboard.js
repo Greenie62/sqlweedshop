@@ -26,6 +26,7 @@ rollBadges.forEach((b,idx)=>{
         .then(res=>res.json())
         .then(res=>{
             console.log(res)
+            location.reload()
         })
     }
 })
@@ -38,6 +39,7 @@ smokeBadges.forEach((b,idx)=>{
         .then(res=>res.json())
         .then(res=>{
             console.log(res)
+            location.reload()
         })
     }
 })

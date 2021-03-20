@@ -2,6 +2,9 @@
     <h1>Welcome to da Weed Shop</h1>
 </div>
 <div class="container">
+    <div class="row d-flex justify-content-around">
+        <h3><%=user.username%></h3> <h5>Balance:$<%=user.balance%></h5>
+    </div>
     <div class="row">
         <div class="col-md-4">
             <div class="card">
@@ -14,6 +17,8 @@
                     <div class="d-flex justify-content-around align-center">
                         <h4><%=w.weedname%></h4>
                         <h5>$<%=w.price%></h5>
+                        <span class='roll badge badge-warning' data-id="<%=w.id%>">Roll</span>
+
                     </div>
                  <% } %>
                     <% }) %>

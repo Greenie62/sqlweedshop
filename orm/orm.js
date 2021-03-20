@@ -12,6 +12,14 @@ module.exports = {
         })
     },
 
+    getUser(username,cb){
+        connection.query("SELECT * FROM smoker WHERE ?",{username},(err,content)=>{
+            if(err)throw err;
+            console.log(content);
+             cb(content);
+        })
+    },
+
     addUser(user){
         connection.query("INSERT INTO smoker SET ?",user,(err,content)=>{
             if(err)throw err;

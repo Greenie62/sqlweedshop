@@ -1,23 +1,26 @@
 const mysql = require('mysql');
+const connection={}
 
+if(process.env.JAWSDB_URL){
 
-const connection = mysql.createConnection({
+ connection = process.env.JAWSDB_URL
+ 
+}
+
+else{
+  connection=mysql.createConnection({
     port:8889,
     host:"localhost",
     database:'weedstoredb',
     user:'root',
     password:'root',
-
-    production: {
-        "use_env_variable": "JAWSDB_URL",
-        "dialect": "mysql"
-      }
-})
+  })
+}
 
 
-connection.connect(function(){
-    console.log(`Connection on thread ${connection.threadId}.`)
-})
 
+
+
+connection.connect()
 
 module.exports = connection;

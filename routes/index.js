@@ -18,14 +18,23 @@ router.get("/login",(req,res)=>{
 
 
 router.get("/dashboard",(req,res)=>{
+    if(!req.user){
+        res.redirect("/login")
+    }
+    else{
+    console.log(req.user.username)
+    orm.getUser(req.user.username,(user)=>{
+        console.log(user)
     orm.getWeeds((weeds)=>{
         console.log("weeds")
-        let indica = weeds.filter(w=>w.is_indica === true)
-        let sativa = weeds.filter(w=>w.is_indica !== true)
+        let indica = weeds.filter(w=>w.is_indica === 1)
+        let sativa = weeds.filter(w=>w.is_indica !== 1)
     
-    res.render("dashboard",{indica,sativa,weeds})
+    res.render("dashboard",{indica,sativa,weeds,user:user[0]})
 
     })
+})
+    }
 })
 
 
