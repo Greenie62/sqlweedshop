@@ -16,6 +16,13 @@ app.use(express.urlencoded({extended:true}));
 app.use(layouts)
 app.use(express.static("public"))
 
+app.use((req,res,next)=>{
+    if(req.url === "/favicon.ico"){
+        console.log("f that file")
+        next()
+    }
+})
+
 
 app.use(flash())
 app.use(session({
