@@ -1,0 +1,107 @@
+<div class='jumbotron text-center bg-secondary text-white'>
+    <h1>Welcome to da Weed Shop</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-center bg-danger text-white">
+                    Indica...
+                </div>
+                <div class="card-body">
+                    <% indica.forEach(w=>{ %>
+                        <% if(!w.rolled){ %>
+                    <div class="d-flex justify-content-around align-center">
+                        <h4><%=w.weedname%></h4>
+                        <h5>$<%=w.price%></h5>
+                    </div>
+                 <% } %>
+                    <% }) %>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header text-center bg-danger text-white">
+                    Sativa
+                </div>
+                <div class="card-body">
+                    <% sativa.forEach(w=>{ %>
+                        <% if(!w.rolled){ %>
+                    <div class="d-flex justify-content-around align-center my-4">
+                        <h4><%=w.weedname%></h4>
+                        <h5>$<%=w.price%></h5>
+                        <span class='roll badge badge-info' data-id="<%=w.id%>">Roll</span>
+                    </div>
+                    <% } %>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <form class='form' action="/addweed" method="POST">
+            <div class="formGroup">
+                <label for="weedname">Weedname:</label>
+                <input type="text" name="weedname" id="weedname" placeholder="weedname..." autocomplete="off">
+                <small class="text-muted">- Enter a weedname - </small>
+            </div>
+            <div class="formRow d-flex align-center">
+            <div class="formGroup">
+                <label for="price">Price:</label>
+                <br>
+                <select name="price" 
+                        id="price" 
+                        placeholder="price...">
+                
+                </select>
+                <br/>
+                <small class="text-muted">- Enter a price - </small>
+            </div>
+
+            <div class="formGroup">
+                <label for="quantity">Quantity:</label>
+                <br>
+                <select name="quantity" 
+                        id="quantity" 
+                        placeholder="quantity...">
+                
+                </select>
+                <br/>
+                <small class="text-muted">- Enter a quantity - </small>
+            </div>
+            <div class="formGroup">
+                <label for="is_indica">Indica:</label>
+                <input type="checkbox" name="is_indica" id="is_indica">
+            </div>
+        </div>
+        <button class='btn btn-danger btn-block' type="submit">Add</button>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-center bg-warning">
+                    <h3>Rolled</h3>
+                </div>
+                <div class="card-body">
+                    <% weeds.forEach(w=>{ %>
+                        <% if(w.rolled){ %>
+                        <div class="d-flex justify-content-around align-center my-4">
+                            <h4><%=w.weedname%></h4>
+                            <span class='smoke badge badge-danger' data-id="<%=w.id%>">Smoke</span>
+                        </div>
+                   <% } %>
+                     <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="footer bg-secondary text-center text-white">
+    <p>Footer&copy;</p>
+</div>
+
+
+<script src="js/dashboard.js"></script>

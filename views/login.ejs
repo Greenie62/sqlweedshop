@@ -1,0 +1,35 @@
+<div class='bg-primary text-white text-center mb-2 p-4'>
+    <h1>Login Weedshop</h1>
+</div>
+<div class="bodyArea">
+ <div class="row">
+     <div class="col-md-4"></div>
+     <div class="col-md-4">
+         <% if (messages.error){ %>
+            <div class='alert alert-danger text-center'>
+            <h3><%=messages.error %></h3>
+            </div>
+          <% } %>
+         <form class='bg-secondary p-2' action="/login" method="POST">
+        <div class="formDiv text-center">
+            <label for="username">Username:</label>
+            <input type="text" class='form-control' id="username" name="username" placeholder="username..." autocomplete="off">
+        </div>
+        <div class="formDiv text-center">
+            <label for="password">Password:</label>
+            <input type="text" class='form-control' id="password" name="password" placeholder="password..." autocomplete="off">
+        </div>
+        <div class="formDiv">
+            <button class="btn btn-success btn-block my-3">Login</button>
+        </div>
+        </form>
+     </div>
+     <div class="col-md-4"></div>
+ </div>
+</div>
+
+
+
+<div class="bg-primary text-center text-white mt-2">
+    <p>Footer&copy;</p>
+</div>
